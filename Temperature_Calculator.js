@@ -21,15 +21,14 @@ function Temp_convertor_FtoC(temperature){
 }
 
 function app(temperature){
-    var Left_value = temperature;
-    var Left_Unit;
-    var Right_value= temperature;
-    var Right_unit;
+    var Left_value= temperature
+    var Left_Unit
+    var Right_value
+    var Right_unit
     var prompt =require('prompt-sync')();
     var testCases;
     var source;
-    while (true){
-        testCases = view(Left_value,Left_Unit,Right_value,Right_unit)
+    
         source= prompt('Left temperature is source? ')
 
         if (source == 'yes'){
@@ -132,16 +131,12 @@ function app(temperature){
                 }
             } 
         }
-        if (Left_value == 'no'){
-            break
-        }
-        if (Right_value == 'no'){
-            break
-        }
         console.clear()
-    }
+        testCases = view(Left_value,Left_Unit,Right_value,Right_unit)
+        
+        app()
     
 
 }
-
-app(0)
+view(0,"Celsius",32,"Faherenheit")
+app()
