@@ -6,7 +6,18 @@ function view(Temp1,Temp1_Name,Temp2,Temp2_Name){
   
     ];
     printTable(testCases);
-}  
+}
+function view_title(){
+    var figlet = require('figlet');
+    console.log(figlet.textSync('Unit Convertor App', {
+        font: 'standard',
+        horizontalLayout: 'default',
+        verticalLayout: 'default',
+        width: undefined,
+        whitespaceBreak: false
+    }));
+}
+
 function Temp_convertor_CtoK(temperature){
     return parseInt(temperature)+ parseInt(273.15)
 }
@@ -20,13 +31,12 @@ function Temp_convertor_FtoC(temperature){
     return parseInt(temperature-32)*0.55
 }
 
-function app(temperature){
-    var Left_value= temperature
+function app(){
+    var Left_value
     var Left_Unit
     var Right_value
     var Right_unit
     var prompt =require('prompt-sync')();
-    var testCases;
     var source;
     
         source= prompt('Left temperature is source? ')
@@ -131,12 +141,13 @@ function app(temperature){
                 }
             } 
         }
-        console.clear()
-        testCases = view(Left_value,Left_Unit,Right_value,Right_unit)
-        
-        app()
-    
-
+    console.clear()
+    view_title()
+    view(Left_value,Left_Unit,Right_value,Right_unit)
+    app()
 }
-view(0,"Celsius",32,"Faherenheit")
+view_title()
+view(0,"Celsius",32,"Fahrenheit")
 app()
+
+
